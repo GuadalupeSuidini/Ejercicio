@@ -15,7 +15,12 @@ def vistaPlantilla1 (requests):
 def familiares(self,nombre,parentezco,edad,fechaNacimiento):
     familiares = Familia(nombre=nombre,parentezco=parentezco,edad=edad,fechaNacimiento=fechaNacimiento)
     familiares.save()
-    return HttpResponse(f"se creo una neva persona: nombre: {familiares.nombre}, parentezco: {familiares.parentezco}")
+    return render(self,"familiares.html")
 
 
+def listaFamiliares(self):
+    
+    lista = Familia.objects.all()
+    
+    return render(self, "listaFamiliares.html", {"listaFamiliares":lista}) 
 
